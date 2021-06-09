@@ -1,0 +1,26 @@
+.menu {
+  text-align: center;
+  border: 0px solid black;
+  border-radius: 5px;
+  position: sticky;
+  top: 80px;
+  margin-bottom: 20px;
+  padding: 10px 10px;
+  margin: 0 auto;
+  width: 50%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+
+  background-color: #fff;
+  z-index: 1;
+}
+.link {
+  cursor: pointer;
+  padding: 2px 2px;
+  text-align: center;
+  &:hover {
+    background-color: rgb(171, 171, 171);
+    border-radius: 3px;
+  }
+}
