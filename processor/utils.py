@@ -28,13 +28,13 @@ def phrase_detect(list_base, phrase):
 
     Args:
         list_base (list of strings): list of source text phrases
-        phrase (list of strings): list of parsed strings
+        phrase (string): parsed string
 
     Returns:
         list of tuples: list of pairs word-confidence
     """
     list_match = process.extract(phrase, list_base, scorer=fuzz.token_set_ratio, limit=30)
-    return list_match[0]
+    return list_match[0][0]
 
 def test():
     list_base = ['привет', 'как дела', 'пойдем']
