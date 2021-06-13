@@ -9,14 +9,13 @@ from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
 
 def parse_image(image_path):
-    """
-    Find ICD-10 codes in the image.
+    """ Find ICD-10 codes in the image.
 
     Args:
-        image_path (string): image path to process
+        image_path (string): image path to process.
 
     Returns:
-        list: list of all icd-10 codes in image
+        list: list of all icd-10 codes in image.
     """
 
     img = cv2.imread(image_path)
@@ -26,14 +25,13 @@ def parse_image(image_path):
     return icd_codes
 
 def find_icd_block(icd_codes):
-    """
-    Find hierarchy block for each icd code.
+    """Find hierarchy block for each icd code.
 
     Args:
-        icd_codes (list of strings): list of icd codes to process
+        icd_codes (list of strings): list of icd codes to process.
 
     Returns:
-        dict: {'icd code': 'icd block'}
+        dict: {'icd code': 'icd block'}.
     """
 
     icd_dict = {}
@@ -43,18 +41,15 @@ def find_icd_block(icd_codes):
             icd_dict[i] = code.block
     return icd_dict
 
-
-
 def phrase_detect(list_base, phrase):
-    """
-    Find similarity between source and parsed texts.
+    """ Find similarity between source and parsed texts.
 
     Args:
-        list_base (list of strings): list of source text phrases
-        phrase (string): parsed string
+        list_base (list of strings): list of source text phrases.
+        phrase (string): parsed string.
 
     Returns:
-        list of tuples: list of pairs word-confidence
+        list of tuples: list of pairs word-confidence.
     """
 
     list_match = process.extract(phrase, list_base, scorer=fuzz.token_set_ratio, limit=30)
