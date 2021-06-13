@@ -44,6 +44,12 @@ def parse_image(image_path):
 
 def find_icd_block(icd_codes):
     """Find hierarchy block for each icd code.
+    With icd10 library it is also possible (e.g. code = J20.0):
+    - check if code exists - code.billable: True or False
+    - get description - code.description: e.g. Acute bronchitis due to Mycoplasma pneumoniae
+    - get chapter - code.chapter: e.g. X
+    - get block - code.block: e.g. J00-J99
+    - get block desctiprion - code.block_desription: e.g. Diseases of the respiratory system
 
     Args:
         icd_codes (list of strings): list of icd codes to process.
