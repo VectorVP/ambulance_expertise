@@ -1,10 +1,14 @@
 from flask import Flask, request, jsonify, Response
+from utils import phrase_detect
 
 app = Flask(__name__)
 
 @app.route('/process', methods = ['POST'])
 def process_document():
-    pass
+    image = request.data
+    image = preprocessor(image)
+    icd_list = parse_image(image)
+    return jsonify(icd_list)
 
 @app.route('/process', methods = ['GET'])
 def get_document():
