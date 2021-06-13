@@ -35,8 +35,9 @@ def parse_image(image_path):
 
     img = cv2.imread(image_path)
     img_data = pytesseract.image_to_string(img, output_type=Output.DICT)
-    pattern = r'[QDEGKLMPOZJ]\d+\.?\d+?'
+    pattern = r'[A-Z]\d+\.?\d+?'
     icd_codes = re.findall(pattern, img_data['text'])
+    icd_codes = list(filter(lambda x: x != 'B10', icd_codes))
     return icd_codes
 
 def find_icd_block(icd_codes):
