@@ -1,12 +1,27 @@
 import re
 import cv2
 import icd10
+import numpy as np
 
 import pytesseract
 from pytesseract import Output
 
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
+
+def preprocessor(image_str):
+    """ Convert image-string (bytes) to original image.
+
+    Args:
+        image_str (string): image in bytes.
+
+    Returns:
+        object: original image.
+    """
+
+    image = np.fromstring(image_str, dtype=np.uint8)
+    image = cv2.imdecode(image, 0)
+    return image
 
 def parse_image(image_path):
     """ Find ICD-10 codes in the image.
