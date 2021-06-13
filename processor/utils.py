@@ -3,6 +3,7 @@ import cv2
 import icd10
 import json
 import numpy as np
+import pandas as pd
 
 import pytesseract
 from pytesseract import Output
@@ -88,6 +89,31 @@ def phrase_detect(list_base, phrase):
 
     list_match = process.extract(phrase, list_base, scorer=fuzz.token_set_ratio, limit=30)
     return list_match[0]
+
+def xls_to_json(xls_path, json_path):
+    """ Convert xls file with columns ICD and KPI to json file.
+    Due to internal data structure this approach is better than built-in pandas tool.
+
+    Args:
+        xls_path (string): path to xls file - input.
+        json_path (string): path to json file - output.
+
+    Returns:
+        list of tuples: list of pairs word-confidence.
+    """
+
+    xls_data = pd.read_excel(xls_path)
+    icd_list = data['ICD'].tolist()
+    kpi_list = data['KPI'].tolist()
+
+    icd_new = [str(tuple(ast.literal_eval(i))) for i in one_list]
+    kpi_new = [ast.literal_eval(i) for i in two_list]
+
+    dict_data = dict(zip(icd_new, kpi_new))
+    with open(json_path, "w") as outfile:
+        json.dump(dict_data, outfile, ensure_ascii = False, indent = 4)
+    return f"Json file created: {json_path}"
+
 
 def test():
     list_base = ['привет', 'как дела', 'пойдем']
