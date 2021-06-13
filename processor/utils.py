@@ -1,6 +1,7 @@
 import re
 import cv2
 import icd10
+import json
 import numpy as np
 
 import pytesseract
@@ -57,6 +58,23 @@ def find_icd_block(icd_codes):
             icd_dict[i] = code.block
     return icd_dict
 
+def icd_treatment(icd_list):
+    """ Returns treatment plan for every icd10 code.
+
+    Args:
+        icd_list (list of strings): list of icd10 codes.
+
+    Returns:
+        dict: {'icd code': ['treatment', 'plan']}.
+    """
+
+    procedures = json.load(open("203.json", 'r'))
+    procedures_dict = {}
+    for i in icd_list:
+        values = [value for key, value in procedures.items() if i in key]
+        procedures_dict[i] = values[0]
+    return procedures_dict
+
 def phrase_detect(list_base, phrase):
     """ Find similarity between source and parsed texts.
 
@@ -75,11 +93,13 @@ def test():
     list_base = ['привет', 'как дела', 'пойдем']
     phrase = 'делы'
     phrase_detect_result = phrase_detect(list_base, phrase)
-    parse_image_result = parse_image('/home/vladislav/Downloads/photo_2021-06-10_09-49-26.jpg')
+    parse_image_result = parse_image('photo_2021-06-10_09-49-26.jpg')
     find_icd_block_result = find_icd_block(parse_image_result)
-    print('phrase_detect result:', phrase_detect_result)
+    icd_treatment_result = icd_treatment(parse_image_result)
+    #print('phrase_detect result:', phrase_detect_result)
     print('parse_image result:', parse_image_result)
     print('code_block result:', find_icd_block_result)
+    print('icd_treatment_result:', icd_treatment_result)
 
 if __name__ == "__main__":
     test()
