@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, Response
-from utils import phrase_detect
+from utils import *
 
 app = Flask(__name__)
 
