@@ -9,14 +9,15 @@ sudo apt-get install tesseract-ocr
 ```
 pip3 install --upgrade --force-reinstall --no-cache-dir docker-compose && sudo ln -sf /usr/local/bin/docker-compose /usr/bin/docker-compose
 ```
-If error ```bash: /usr/bin/docker-compose: No such file or directory``` occured, run:
-```
-hash docker-compose
-```
 
 3. To start Docker run:
 ```
 docker-compose build
 docker-compose up -d
 ```
+If error ```bash: /usr/bin/docker-compose: No such file or directory``` occured, run:
+```
+hash docker-compose
+```
+ 
 
