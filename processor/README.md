@@ -14,3 +14,10 @@ If error ```bash: /usr/bin/docker-compose: No such file or directory``` occured,
 hash docker-compose
 ```
 
+3. To start Docker run:
+```
+cd medical_expertise_alpha/processor
+docker-compose build
+docker-compose up -d
+```
+
