@@ -1,5 +1,5 @@
+flask==2.0.1
 icd10-cm==0.0.4
-Cython==0.29.23
 fuzzywuzzy==0.18.0
 numpy==1.19.5
 opencv-python==4.5.2.54
