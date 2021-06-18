@@ -14,6 +14,8 @@ import {
     USER_DETAILS_REQUEST,
     USER_DETAILS_SUCCESS,
     USER_DETAILS_FAIL,
+
+    SET_NUMBER,
 } from '../constants/userConstansts'
 
 export const userLoginPeducer = (state = { }, action) => {
@@ -52,6 +54,15 @@ export const userDetailsReducer = (state = { user: {} }, action) => {
             return { loading: false, user: action.payload } 
         case USER_DETAILS_FAIL:
             return { loading: false, error: action.payload }
+        default:
+            return state
+    }
+}
+
+export const linkReducer = (state = { link: {} }, action) => {
+    switch (action.type) {
+        case SET_NUMBER:
+            return { link: action.payload } 
         default:
             return state
     }

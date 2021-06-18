@@ -8,7 +8,8 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import { newsListPeducer, createNewReducer } from './reducers/newsReducer'
 import { preloaderReducer } from './reducers/preloaderReducer'
 import { doctorsListPeducer, doctorPeducer } from './reducers/doctorReducer'
-import { userLoginPeducer, userRegisterPeducer, userDetailsReducer } from './reducers/userReducer'
+import { userLoginPeducer, userRegisterPeducer, userDetailsReducer, linkReducer } from './reducers/userReducer'
+import { qualityReducer, flaskDataReducer, setImageReducer } from './reducers/qualityReducer'
 
 const reducer = combineReducers({
     news:newsListPeducer,
@@ -19,6 +20,10 @@ const reducer = combineReducers({
     userLogin: userLoginPeducer,
     userRegister: userRegisterPeducer,
     userDetails: userDetailsReducer,
+    linkNumber: linkReducer,
+    qualityNumber: qualityReducer,
+    qualityData: flaskDataReducer,
+    qualityImage: setImageReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ? 
@@ -26,6 +31,7 @@ JSON.parse(localStorage.getItem('userInfo')) : null
 
 const intitialState = {
     userLogin: { userInfo: userInfoFromStorage },
+    // добавить инишиал стор номеров табов
 } // start with default store
 
 const middleware = [thunk]

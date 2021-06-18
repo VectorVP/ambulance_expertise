@@ -8,7 +8,6 @@ import classes from './HomeScreen.module.scss'
 // components
 import New from '../components/New/New'
 import Menu from '../components/Menu/Menu'
-import ProfileInfo from '../components/ProfileInfo/ProfileInfo'
 import HelpMenu from '../components/HelpMenu/HelpMenu'
 import Loader from '../components/UI/Loader/Loader'
 
@@ -41,14 +40,13 @@ const HomeScreen = ({ match }) => {
             <div className={classes.container}>
                 <div className={classes.container_left}>
                     <Menu />
-                    <ProfileInfo />
                 </div>
 
                 <LayoutContainer>
                     {
                         !userInfo ?
                         <div>
-                            <h1 style={{paddingTop:'10px'}}>Home</h1>
+                            <h1 style={{paddingTop:'10px'}}>Главная</h1>
                             <div className={classes.around_news}>
                                 <div style={{fontSize:"24px"}}> 
                                     You must be logged in to watch the news. 
@@ -58,7 +56,7 @@ const HomeScreen = ({ match }) => {
                         :
                         <div>
                             <div>
-                                <h1 style={{paddingTop:'10px'}}>Home</h1>
+                                <h1 style={{paddingTop:'10px'}}>Главная</h1>
                                 <div className={classes.around_news}>
                                     {
                                     loading ? <p style={{fontSize:'20px'}}> Loading... </p> :

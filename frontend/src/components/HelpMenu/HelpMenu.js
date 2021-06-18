@@ -66,7 +66,7 @@ const HelpMenu = ({ match, type, userInfo }) => {
     }
     return (
         <div className={classes.helpMenu}>
-            <h2> Help Menu </h2>
+            <h2>  </h2>
         </div>
     )
 

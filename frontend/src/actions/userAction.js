@@ -15,6 +15,8 @@ import {
     USER_DETAILS_REQUEST,
     USER_DETAILS_SUCCESS,
     USER_DETAILS_FAIL,
+
+    SET_NUMBER,
 } from '../constants/userConstansts'
 
 export const userLogin = (email, password) => async (dispatch) => {
@@ -120,5 +122,13 @@ export const userLogout = () => async (dispatch) => {
     })
     dispatch({
         type: USER_LIST_RESET
+    })
+}
+
+export const setNumberofLink = (number) => async (dispatch) => {
+    localStorage.removeItem('userInfo')
+    dispatch({
+        type: SET_NUMBER,
+        payload: number,
     })
 }

@@ -1,8 +1,7 @@
-import React, { useState, useEffect, Component } from 'react'
+import React, { useState, useEffect } from 'react'
 
 // components
 import Menu from '../../components/Menu/Menu'
-import ProfileInfo from '../../components/ProfileInfo/ProfileInfo'
 import SubscribeButton from '../../components/UI/SubscribeButton/SubscribeButton'
 import Button from '@material-ui/core/Button'
 // redux
@@ -51,7 +50,6 @@ const DoctorScreen = ({ match }) => {
             <div className={classes.container}>
                 <div className={classes.container_left}>
                     <Menu />
-                    <ProfileInfo />
                 </div>
                 <LayoutContainer>
                   <div>

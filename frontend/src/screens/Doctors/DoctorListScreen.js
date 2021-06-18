@@ -13,7 +13,6 @@ import LayoutContainer from '../../components/LayoutContainer/LayoutContainer.js
 
 // components
 import Menu from '../../components/Menu/Menu'
-import ProfileInfo from '../../components/ProfileInfo/ProfileInfo'
 import Doctor from '../../components/Doctor/Doctor'
 
 const DoctorListScreen = () => {
@@ -41,7 +40,6 @@ const DoctorListScreen = () => {
             <div className={classes.container}>
                 <div className={classes.container_left}>
                     <Menu />
-                    <ProfileInfo />
                 </div>
 
                 <LayoutContainer type='doctors'>

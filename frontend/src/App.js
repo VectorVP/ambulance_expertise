@@ -13,6 +13,9 @@ import HomeScreen from './screens/HomeScreen'
 import DoctorListScreen from './screens/Doctors/DoctorListScreen'
 import DoctorScreen from './screens/Doctors/DoctorScreen'
 import CreateScreen from './screens/CreateScreen/CreateScreen'
+import AnalyticsScreen from './screens/AnalyticsScreen/AnalyticsScreen';
+import QualityControlScreen from './screens/QualityControlScreen/QualityControlScreen'
+import HandbookScreen from './screens/HandbookScreen/HandbookScreen'
 
 import { useSelector } from 'react-redux'
 
@@ -34,6 +37,9 @@ function App() {
             <Route path="/doctors/:id" component={DoctorScreen}/>
             <Route path="/doctors" component={DoctorListScreen} exact/>
             <Route path="/home/create" component={CreateScreen}/>
+            <Route path="/qualitycontrol" component={QualityControlScreen} exact/>
+            <Route path="/analytics" component={AnalyticsScreen} exact/>
+            <Route path="/handbook" component={HandbookScreen} exact/>
             <Route path="/" component={HomeScreen} exact/>
           </Container>
         </main>

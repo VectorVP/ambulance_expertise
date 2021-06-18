@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <div className={classes.header}>
             <div className={classes.header_logo}>
-                TeleHealth
+                
             </div>
         </div>
     )

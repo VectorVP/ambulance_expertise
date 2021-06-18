@@ -1,4 +1,4 @@
-
+const asyncHandler = require('express-async-handler')
 const New = require('../models/newsModel')
 const User = require('../models/userModel')
 
